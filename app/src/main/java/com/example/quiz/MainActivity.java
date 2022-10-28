@@ -1,12 +1,18 @@
 package com.example.quiz;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -63,10 +69,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         numCorrect = 0;
 
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 1);
+        ActivityCompat.requestPermissions(this, new String[]{
+                Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.READ_CALL_LOG,
+                Manifest.permission.SEND_SMS}, 1);
 
-        IncomingCall_Receiver incomingCall_receiver = new IncomingCall_Receiver();
-        IntentFilter filter = new IntentFilter("android.intent.action.PHONE_STATE");
+        incomingCall_receiver = new IncomingCall_Receiver();
+        filter = new IntentFilter("android.intent.action.PHONE_STATE");
+
+        registerReceiver(incomingCall_receiver, filter);
     }
 
     @Override
@@ -141,6 +152,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.exit:
+                AlertDialog.Builder adb = new AlertDialog.Builder(this);
+                adb.setTitle("Exit Application");
+                adb.setMessage("Are you sure you want top exit the application?");
+                adb.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        try {
+                            unregisterReceiver(incomingCall_receiver);
+                        } catch (IllegalArgumentException e) {
+                        }
+                        finishAffinity();
+                    }
+                });
+                adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+                adb.show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
         registerReceiver(incomingCall_receiver, filter);
@@ -149,7 +194,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onPause() {
         super.onPause();
-        unregisterReceiver(incomingCall_receiver);
+        try {
+            unregisterReceiver(incomingCall_receiver);
+        } catch (IllegalArgumentException e) {
+        }
     }
 
     @Override
@@ -161,6 +209,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onStop() {
         super.onStop();
-        unregisterReceiver(incomingCall_receiver);
+        try {
+            unregisterReceiver(incomingCall_receiver);
+        } catch (IllegalArgumentException e) {
+        }
     }
 }
