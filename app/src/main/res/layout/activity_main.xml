@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context=".MainActivity"
+android:background="@drawable/blue_background">
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="40dp"
+            android:gravity="center"
+            android:text="חידון על ישראל"
+            android:textStyle="bold"
+            android:textSize="40sp"
+            android:background="@color/teal_700"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp"
+            android:gravity="center"
+            android:text="מי היה ראש הממשלה הראשון בישארל?"
+            android:textColor="#012022"
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="20dp"
+                android:text="גולדה מאיר"
+                android:maxLines="2"
+                android:autoSizeTextType="uniform"
+                android:id="@+id/b1_1"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="דוד בן גוריון"
+                android:maxLines="2"
+                android:autoSizeTextType="uniform"
+                android:id="@+id/b1_2"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="20dp"
+                android:text="בנימין נתניהו"
+                android:maxLines="2"
+                android:autoSizeTextType="uniform"
+                android:id="@+id/b1_3"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp"
+            android:gravity="center"
+            android:text="מה העיר הכי גדולה בישראל?"
+            android:textColor="#012022"
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="20dp"
+                android:text="ירושליים"
+                android:maxLines="1"
+                android:autoSizeTextType="uniform"
+                android:id="@+id/b2_1"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ראשון לציון"
+                android:maxLines="2"
+                android:autoSizeTextType="uniform"
+                android:id="@+id/b2_2"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="20dp"
+                android:text="תל אביב"
+                android:maxLines="2"
+                android:autoSizeTextType="uniform"
+                android:id="@+id/b2_3"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp"
+            android:gravity="center"
+            android:text="מי היה מועמד להיות הנשיא הראשון?"
+            android:textColor="#012022"
+            android:textSize="25sp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="20dp"
+                android:text="משה דין"
+                android:maxLines="2"
+                android:autoSizeTextType="uniform"
+                android:id="@+id/b3_1"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="בוז'י הרצוג"
+                android:maxLines="2"
+                android:autoSizeTextType="uniform"
+                android:id="@+id/b3_2"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="20dp"
+                android:text="אלברט איינשטין"
+                android:maxLines="2"
+                android:autoSizeTextType="uniform"
+                android:id="@+id/b3_3" />
+        </LinearLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="false"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animationEnd"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                app:lottie_autoPlay="false"
+                app:lottie_loop="true"/>
+
+            <Button
+                android:id="@+id/reset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:text="reset"
+                android:textSize="35sp"
+                android:layout_gravity="center"
+                android:backgroundTint="#FFAB00"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+</FrameLayout>
+
+
+</LinearLayout>
